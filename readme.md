@@ -1,16 +1,13 @@
-# [gulp](https://github.com/wearefractal/gulp)-strip-debug [![Build Status](https://secure.travis-ci.org/sindresorhus/gulp-strip-debug.png?branch=master)](http://travis-ci.org/sindresorhus/gulp-strip-debug)
+# [gulp](https://github.com/wearefractal/gulp)-strip-debug [![Build Status](https://travis-ci.org/sindresorhus/gulp-strip-debug.png?branch=master)](https://travis-ci.org/sindresorhus/gulp-strip-debug)
 
-> Strip `console` and `debugger` statements from JavaScript code with [strip-debug](https://github.com/sindresorhus/strip-debug)
+> Strip `console`, `alert`, and `debugger` statements from JavaScript code with [strip-debug](https://github.com/sindresorhus/strip-debug)
 
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-strip-debug)
-
+```bash
+$ npm install --save-dev gulp-strip-debug
 ```
-npm install --save-dev gulp-strip-debug
-```
-
 
 ## Example
 
@@ -28,4 +25,4 @@ gulp.task('default', function () {
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
