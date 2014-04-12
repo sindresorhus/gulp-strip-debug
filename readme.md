@@ -17,7 +17,7 @@ var gulp = require('gulp');
 var stripDebug = require('gulp-strip-debug');
 
 gulp.task('default', function () {
-	gulp.src('src/app.js')
+	return gulp.src('src/app.js')
 		.pipe(stripDebug())
 		.pipe(gulp.dest('dist'));
 });
