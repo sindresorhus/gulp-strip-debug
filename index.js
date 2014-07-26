@@ -18,7 +18,7 @@ module.exports = function () {
 		try {
 			file.contents = new Buffer(stripDebug(file.contents.toString()).toString());
 		} catch (err) {
-			this.emit('error', new gutil.PluginError('gulp-strip-debug', err));
+			this.emit('error', new gutil.PluginError('gulp-strip-debug', err, {fileName: file.path}));
 		}
 
 		this.push(file);
