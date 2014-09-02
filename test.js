@@ -1,7 +1,7 @@
 'use strict';
 var assert = require('assert');
 var gutil = require('gulp-util');
-var stripDebug = require('./index');
+var stripDebug = require('./');
 
 it('should strip debugging', function (cb) {
 	var stream = stripDebug();
