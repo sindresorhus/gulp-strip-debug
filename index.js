@@ -17,9 +17,11 @@ module.exports = function () {
 
 		try {
 			file.contents = new Buffer(stripDebug(file.contents.toString()).toString());
-			cb(null, file);
+			this.push(file);
 		} catch (err) {
-			cb(new gutil.PluginError('gulp-strip-debug', err, {fileName: file.path}));
+			this.emit('error', new gutil.PluginError('gulp-strip-debug', err, {fileName: file.path}));
 		}
+
+		cb();
 	});
 };
