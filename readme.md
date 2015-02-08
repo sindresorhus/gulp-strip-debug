@@ -1,11 +1,11 @@
-# [gulp](https://github.com/wearefractal/gulp)-strip-debug [![Build Status](https://travis-ci.org/sindresorhus/gulp-strip-debug.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-strip-debug)
+# gulp-strip-debug [![Build Status](https://travis-ci.org/sindresorhus/gulp-strip-debug.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-strip-debug)
 
 > Strip `console`, `alert`, and `debugger` statements from JavaScript code with [strip-debug](https://github.com/sindresorhus/strip-debug)
 
 
 ## Install
 
-```sh
+```
 $ npm install --save-dev gulp-strip-debug
 ```
 
