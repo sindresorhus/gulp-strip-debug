@@ -18,7 +18,7 @@ var stripDebug = require('gulp-strip-debug');
 
 gulp.task('default', function () {
 	return gulp.src('src/app.js')
-		.pipe(stripDebug())
+		.pipe(stripDebug({debugger: true, console: true, alert: true}))//or stripDebug()		
 		.pipe(gulp.dest('dist'));
 });
 ```
