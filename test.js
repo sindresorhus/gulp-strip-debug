@@ -1,17 +1,16 @@
-'use strict';
-var assert = require('assert');
-var gutil = require('gulp-util');
-var stripDebug = require('./');
+import test from 'ava';
+import Vinyl from 'vinyl';
+import pEvent from 'p-event';
+import m from '.';
 
-it('should strip debugging', function (cb) {
-	var stream = stripDebug();
+test('strips debugging statements', async t => {
+	const stream = m();
+	const promise = pEvent(stream, 'data');
 
-	stream.on('data', function (file) {
-		assert.equal(file.contents.toString(), 'function test(){}');
-		cb();
-	});
-
-	stream.write(new gutil.File({
-		contents: new Buffer('function test(){debugger;}')
+	stream.end(new Vinyl({
+		contents: Buffer.from('function test(){debugger;}')
 	}));
+
+	const file = await promise;
+	t.is(file.contents.toString(), 'function test(){}');
 });

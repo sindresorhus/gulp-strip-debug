@@ -1,9 +1,9 @@
 'use strict';
-var gutil = require('gulp-util');
-var through = require('through2');
-var stripDebug = require('strip-debug');
+const through = require('through2');
+const stripDebug = require('strip-debug');
+const PluginError = require('plugin-error');
 
-module.exports = function () {
+module.exports = () => {
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull()) {
 			cb(null, file);
@@ -11,15 +11,15 @@ module.exports = function () {
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError('gulp-strip-debug', 'Streaming not supported'));
+			cb(new PluginError('gulp-strip-debug', 'Streaming not supported'));
 			return;
 		}
 
 		try {
-			file.contents = new Buffer(stripDebug(file.contents.toString()).toString());
+			file.contents = Buffer.from(stripDebug(file.contents.toString()).toString());
 			this.push(file);
 		} catch (err) {
-			this.emit('error', new gutil.PluginError('gulp-strip-debug', err, {fileName: file.path}));
+			this.emit('error', new PluginError('gulp-strip-debug', err, {fileName: file.path}));
 		}
 
 		cb();
