@@ -36,8 +36,8 @@
 		"esprima"
 	],
 	"dependencies": {
-		"plugin-error": "^0.1.2",
-		"strip-debug": "^2.0.0",
+		"plugin-error": "^1.0.1",
+		"strip-debug": "^3.0.0",
 		"through2": "^2.0.0"
 	},
 	"devDependencies": {
