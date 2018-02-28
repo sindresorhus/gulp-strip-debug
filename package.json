@@ -1,6 +1,6 @@
 {
 	"name": "gulp-strip-debug",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "Strip console and debugger statements from JavaScript code",
 	"license": "MIT",
 	"repository": "sindresorhus/gulp-strip-debug",
