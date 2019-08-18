@@ -4,24 +4,24 @@ const stripDebug = require('strip-debug');
 const PluginError = require('plugin-error');
 
 module.exports = () => {
-	return through.obj(function (file, enc, cb) {
+	return through.obj(function (file, encoding, callback) {
 		if (file.isNull()) {
-			cb(null, file);
+			callback(null, file);
 			return;
 		}
 
 		if (file.isStream()) {
-			cb(new PluginError('gulp-strip-debug', 'Streaming not supported'));
+			callback(new PluginError('gulp-strip-debug', 'Streaming not supported'));
 			return;
 		}
 
 		try {
 			file.contents = Buffer.from(stripDebug(file.contents.toString()).toString());
 			this.push(file);
-		} catch (err) {
-			this.emit('error', new PluginError('gulp-strip-debug', err, {fileName: file.path}));
+		} catch (error) {
+			this.emit('error', new PluginError('gulp-strip-debug', error, {fileName: file.path}));
 		}
 
-		cb();
+		callback();
 	});
 };

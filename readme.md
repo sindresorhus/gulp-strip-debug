@@ -16,14 +16,9 @@ $ npm install --save-dev gulp-strip-debug
 const gulp = require('gulp');
 const stripDebug = require('gulp-strip-debug');
 
-gulp.task('default', () =>
+exports.default = () => (
 	gulp.src('src/app.js')
 		.pipe(stripDebug())
 		.pipe(gulp.dest('dist'))
 );
 ```
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
