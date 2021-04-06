@@ -4,13 +4,14 @@
 	"description": "Strip console and debugger statements from JavaScript code",
 	"license": "MIT",
 	"repository": "sindresorhus/gulp-strip-debug",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
 	"engines": {
-		"node": ">=8"
+		"node": ">=12"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -37,14 +38,14 @@
 	],
 	"dependencies": {
 		"plugin-error": "^1.0.1",
-		"strip-debug": "^4.0.0",
-		"through2": "^3.0.1"
+		"strip-debug": "^5.0.0",
+		"through2": "^4.0.2"
 	},
 	"devDependencies": {
-		"ava": "^2.3.0",
-		"p-event": "^4.1.0",
-		"vinyl": "^2.1.0",
-		"xo": "^0.24.0"
+		"ava": "^2.4.0",
+		"p-event": "^4.2.0",
+		"vinyl": "^2.2.1",
+		"xo": "^0.38.2"
 	},
 	"peerDependencies": {
 		"gulp": ">=4"

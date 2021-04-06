@@ -2,13 +2,11 @@
 
 > Strip `console`, `alert`, and `debugger` statements from JavaScript code with [`strip-debug`](https://github.com/sindresorhus/strip-debug)
 
-
 ## Install
 
 ```
 $ npm install --save-dev gulp-strip-debug
 ```
-
 
 ## Usage
 
