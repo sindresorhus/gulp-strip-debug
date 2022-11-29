@@ -10,8 +10,10 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
+	"type": "module",
+	"exports": "./index.js",
 	"engines": {
-		"node": ">=12"
+		"node": ">=14.16"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -37,15 +39,16 @@
 		"esprima"
 	],
 	"dependencies": {
-		"plugin-error": "^1.0.1",
-		"strip-debug": "^5.0.0",
-		"through2": "^4.0.2"
+		"@babel/core": "^7.20.5",
+		"easy-transform-stream": "^1.0.0",
+		"plugin-error": "^2.0.0",
+		"strip-debug": "^7.0.0"
 	},
 	"devDependencies": {
-		"ava": "^2.4.0",
-		"p-event": "^4.2.0",
-		"vinyl": "^2.2.1",
-		"xo": "^0.38.2"
+		"ava": "^5.1.0",
+		"p-event": "^5.0.1",
+		"vinyl": "^3.0.0",
+		"xo": "^0.53.1"
 	},
 	"peerDependencies": {
 		"gulp": ">=4"

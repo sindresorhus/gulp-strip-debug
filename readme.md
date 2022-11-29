@@ -4,17 +4,17 @@
 
 ## Install
 
-```
-$ npm install --save-dev gulp-strip-debug
+```sh
+npm install --save-dev gulp-strip-debug
 ```
 
 ## Usage
 
 ```js
-const gulp = require('gulp');
-const stripDebug = require('gulp-strip-debug');
+import gulp from 'gulp';
+import stripDebug from'gulp-strip-debug';
 
-exports.default = () => (
+export default () => (
 	gulp.src('src/app.js')
 		.pipe(stripDebug())
 		.pipe(gulp.dest('dist'))
