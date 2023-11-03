@@ -1,26 +1,12 @@
 import {Buffer} from 'node:buffer';
-import transformStream from 'easy-transform-stream';
-import PluginError from 'plugin-error';
 import {transformAsync} from '@babel/core';
 import stripDebug from 'strip-debug';
+import {gulpPlugin} from 'gulp-plugin-extras';
 
 export default function gulpStripDebug() {
-	return transformStream({objectMode: true}, async file => {
-		if (file.isNull()) {
-			return file;
-		}
-
-		if (file.isStream()) {
-			throw new PluginError('gulp-strip-debug', 'Streaming not supported');
-		}
-
-		try {
-			const {code} = await transformAsync(file.contents.toString(), {plugins: [stripDebug]});
-			file.contents = Buffer.from(code);
-		} catch (error) {
-			throw new PluginError('gulp-strip-debug', error, {fileName: file.path});
-		}
-
+	return gulpPlugin('gulp-strip-debug', async file => {
+		const {code} = await transformAsync(file.contents.toString(), {plugins: [stripDebug]});
+		file.contents = Buffer.from(code);
 		return file;
 	});
 }
