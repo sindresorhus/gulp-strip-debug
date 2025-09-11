@@ -27,3 +27,24 @@ test('strips `console.log()` statements', async t => {
 	const file = await promise;
 	t.is(file.contents.toString(), 'function test() {\n  void 0;\n}');
 });
+
+test('works with ES module import/export statements', async t => {
+	const stream = stripDebug();
+	const promise = pEvent(stream, 'data');
+
+	stream.end(new Vinyl({
+		contents: Buffer.from(`import {foo} from './foo.js';
+export function test() {
+	console.log('debug info');
+	debugger;
+	return foo();
+}`),
+	}));
+
+	const file = await promise;
+	t.is(file.contents.toString(), `import { foo } from './foo.js';
+export function test() {
+  void 0;
+  return foo();
+}`);
+});
